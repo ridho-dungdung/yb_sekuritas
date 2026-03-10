@@ -36,7 +36,7 @@ class HomeLogic extends GetxController {
   void onSearch() async {
     try{
       String keyword = searchController.value.text;
-      await DioClient().get('https://newsapi.org/v2/everything?q=$keyword&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa')
+      await DioClient().get('https://newsapi.org/v2/everything?q=$keyword&apiKey=320b3c61fb2842b296a3d98571780c20')
           .then((res) => search.value = List.from(res['articles'].map((json) => Article.fromJson(json))));
       update();
     } catch(err) {
@@ -51,14 +51,14 @@ class HomeLogic extends GetxController {
   void onRefresh() async {
     try{
       await Future.wait([
-        DioClient().get('top-headlines?country=us&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa'),
-        DioClient().get('top-headlines?country=us&category=general&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa'),
-        DioClient().get('top-headlines?country=us&category=sports&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa'),
-        DioClient().get('top-headlines?country=us&category=business&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa'),
-        DioClient().get('top-headlines?country=us&category=entertainment&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa'),
-        DioClient().get('top-headlines?country=us&category=health&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa'),
-        DioClient().get('top-headlines?country=us&category=science&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa'),
-        DioClient().get('top-headlines?country=us&category=technology&apiKey=5497d4d2f46d4c4491b09dc7d77ac6fa'),
+        DioClient().get('top-headlines?country=us&apiKey=320b3c61fb2842b296a3d98571780c20'),
+        DioClient().get('top-headlines?country=us&category=general&apiKey=320b3c61fb2842b296a3d98571780c20'),
+        DioClient().get('top-headlines?country=us&category=sports&apiKey=320b3c61fb2842b296a3d98571780c20'),
+        DioClient().get('top-headlines?country=us&category=business&apiKey=320b3c61fb2842b296a3d98571780c20'),
+        DioClient().get('top-headlines?country=us&category=entertainment&apiKey=320b3c61fb2842b296a3d98571780c20'),
+        DioClient().get('top-headlines?country=us&category=health&apiKey=320b3c61fb2842b296a3d98571780c20'),
+        DioClient().get('top-headlines?country=us&category=science&apiKey=320b3c61fb2842b296a3d98571780c20'),
+        DioClient().get('top-headlines?country=us&category=technology&apiKey=320b3c61fb2842b296a3d98571780c20'),
       ]).then((res) {
         print('COGSS ${res[0]}');
         trandings.value = List.from(res[0]['articles'].map((json) => Article.fromJson(json)));
