@@ -52,7 +52,7 @@ class ResetPasswordLogic extends GetxController {
       print(err);
       Get.snackbar(
         'Ops..',
-        'Something wrong',
+        'Sorry, update password account failed',
 
         colorText: Colors.white,
         backgroundColor: Colors.red.shade600,
